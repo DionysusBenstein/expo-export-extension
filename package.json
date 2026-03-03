@@ -1,6 +1,6 @@
 {
   "name": "expo-export-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turn an Expo (React Native) web export into a Chrome/browser extension. Handles CSP, underscore renames, and Expo Router in popup.",
   "main": "lib/prepare.cjs",
   "bin": {
@@ -23,7 +23,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DionysusBenstein/expo-export-extension"
+    "url": "git+https://github.com/DionysusBenstein/expo-export-extension.git"
   },
   "publishConfig": {
     "access": "public"
