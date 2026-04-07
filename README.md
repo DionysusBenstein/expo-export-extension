@@ -57,6 +57,8 @@ This reads from `web-export` and writes to `extension-build` by default.
 | `-s, --source <dir>` | `web-export` | Source directory (Expo web export). |
 | `-d, --dest <dir>` | `extension-build` | Output directory for the extension. |
 | `-m, --manifest <path>` | *(none)* | Path to your `manifest.json`. If omitted, a default MV3 manifest is used. |
+| `--manifest-version <v>` | *(none)* | Override `manifest.json` `version` (e.g. `1.2.3`). |
+| `--manifest-version-from-package` | off | Set `manifest.json` `version` from `./package.json`. |
 | `--hydrate` | off | Keep Expo Router hydration (use only if you don’t need it disabled). |
 | `--no-hydrate` | on | Disable hydration (recommended for extension popup). |
 | `--popup-width <px>` | `400` | Minimum popup width in pixels. |
@@ -74,6 +76,12 @@ npx expo-export-extension -s dist -d out -m extension/manifest.json
 
 # Custom popup size
 npx expo-export-extension --popup-width 420 --popup-height 640
+
+# Force manifest version
+npx expo-export-extension --manifest-version 1.0.1
+
+# Sync manifest version from package.json
+npx expo-export-extension --manifest-version-from-package
 ```
 
 ## Your extension manifest

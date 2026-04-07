@@ -7,6 +7,8 @@ const args = process.argv.slice(2);
 let sourceDir = "web-export";
 let destDir = "extension-build";
 let manifestPath = null;
+let manifestVersion = null;
+let manifestVersionFromPackage = false;
 let disableHydration = true;
 let popupMinWidth = 400;
 let popupMinHeight = 600;
@@ -24,6 +26,12 @@ for (let i = 0; i < args.length; i++) {
     case "--manifest":
     case "-m":
       manifestPath = args[++i] || null;
+      break;
+    case "--manifest-version":
+      manifestVersion = args[++i] || null;
+      break;
+    case "--manifest-version-from-package":
+      manifestVersionFromPackage = true;
       break;
     case "--hydrate":
       disableHydration = false;
@@ -49,6 +57,8 @@ Options:
   -s, --source <dir>     Source directory (default: web-export)
   -d, --dest <dir>      Output directory (default: extension-build)
   -m, --manifest <path> Path to your manifest.json (default: use bundled template)
+  --manifest-version <v> Override manifest.json "version" (e.g. 1.2.3)
+  --manifest-version-from-package  Set manifest.json "version" from ./package.json
   --hydrate             Keep Expo Router hydration (default: disabled for extension)
   --no-hydrate          Disable hydration (default)
   --popup-width <px>     Min popup width (default: 400)
@@ -69,6 +79,8 @@ prepareExtensionBuild({
   sourceDir,
   destDir,
   manifestPath,
+  manifestVersion,
+  manifestVersionFromPackage,
   disableHydration,
   popupMinWidth,
   popupMinHeight,
